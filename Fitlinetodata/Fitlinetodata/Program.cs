@@ -185,7 +185,7 @@ namespace Fitlinetodata
             const int columns = 3;
             
             var path = Path.Combine(Directory.GetCurrentDirectory(), "sourceData.txt");
-           
+            Console.WriteLine(path);
             using (StreamReader table = new StreamReader(path))
             {
                 int rows = int.Parse(table.ReadLine());

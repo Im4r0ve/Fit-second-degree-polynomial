@@ -1,0 +1,7 @@
+C:\Users\domin\Source\Repos\Im4r0ve\FitLinetoData\Fitlinetodata\Fitlinetodata\bin\Debug\Fitlinetodata.exe.config
+C:\Users\domin\Source\Repos\Im4r0ve\FitLinetoData\Fitlinetodata\Fitlinetodata\bin\Debug\Fitlinetodata.exe
+C:\Users\domin\Source\Repos\Im4r0ve\FitLinetoData\Fitlinetodata\Fitlinetodata\bin\Debug\Fitlinetodata.pdb
+C:\Users\domin\Source\Repos\Im4r0ve\FitLinetoData\Fitlinetodata\Fitlinetodata\obj\Debug\Fitlinetodata.csprojAssemblyReference.cache
+C:\Users\domin\Source\Repos\Im4r0ve\FitLinetoData\Fitlinetodata\Fitlinetodata\obj\Debug\Fitlinetodata.csproj.CoreCompileInputs.cache
+C:\Users\domin\Source\Repos\Im4r0ve\FitLinetoData\Fitlinetodata\Fitlinetodata\obj\Debug\Fitlinetodata.exe
+C:\Users\domin\Source\Repos\Im4r0ve\FitLinetoData\Fitlinetodata\Fitlinetodata\obj\Debug\Fitlinetodata.pdb
