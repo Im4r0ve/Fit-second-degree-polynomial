@@ -9,5 +9,7 @@ You can fill this file with your own data that must be in the same format.
 
 Format
 Number in the first line is data count
+
 First column contains height
+
 Second column contains weight
