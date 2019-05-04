@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
 
 namespace Fitlinetodata
 {
     class Program
-    {        
+    {   
+        
         static double[,] Transpose(double[,] matrix)
         {
             int rows = matrix.GetLength(0);
@@ -176,63 +177,46 @@ namespace Fitlinetodata
         }
         static void Main(string[] args)
         {
-            const int rows = 43;//unix wc -l sourceData.csv
+           
+            double[,] Matrix;
+            double[] vector;
+            double[] resVector;
+            double[,] tMatrix;
             const int columns = 3;
-            double[,] Matrix = new double[rows, columns] {
-                {25600,160,1},
-                {28224,168,1},
-                {28224,168,1},
-                {28561,169,1},
-{28900,170,1},
-{28900,170,1},
-{29584,172,1},
-{29584,172,1},
-{30625,175,1},
-{31329,177,1},
-{32400,180,1},
-{32400,180,1},
-{32400,180,1},
-{32400,180,1},
-{32761,181,1},
-{33489,183,1},
-{33489,183,1},
-{33489,183,1},
-{33489,183,1},
-{33856,184,1},
-{34225,185,1},
-{34225,185,1},
-{34225,185,1},
-{34225,185,1},
-{34225,185,1},
-{34596,186,1},
-{35721,189,1},
-{36100,190,1},
-{36100,190,1},
-{36481,191,1},
-{37249,193,1},
-{37636,194,1},
-{38025,195,1},
-{31684,178,1},
-{34969,187,1},
-{38025,195,1},
-{27889,167,1},
-{38025,195,1},
-{31329,177,1},
-{30625,175,1},
-{36100,190,1},
-{34596,186,1},
-{36100,190,1},
-                   };
+            
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "sourceData.txt");
+           
+            using (StreamReader table = new StreamReader(path))
+            {
+                int rows = int.Parse(table.ReadLine());
 
-            double[] vector = new double[rows] { 60, 60, 58, 96, 70, 62, 61, 79, 72, 62, 86, 60, 75, 70, 76, 65, 77, 87, 76, 65, 90, 65, 80, 72, 85, 110, 85, 75, 70, 70, 71, 87, 95, 73, 85, 88, 63, 79, 80, 70, 92, 75, 85 };
-            double[] resVector = new double[columns];
-            double[,] tMatrix = new double[columns, rows];
+                Matrix = new double[rows, columns];
+                vector = new double[rows];
+                resVector = new double[columns];
+                tMatrix = new double[columns, rows];
+
+                for (int i = 0; i < rows; i++)
+                {
+                    string[] a = table.ReadLine().Split();
+
+                    int height = int.Parse(a[0]);
+                    int weight = int.Parse(a[1]);               
+                    Matrix[i, 0] = height * height;
+                    Matrix[i, 1] = height;
+                    Matrix[i, 2] = 1;
+                    vector[i] = weight;
+                }
+
+            }
+            
             tMatrix = Transpose(Matrix);
             resVector = MultiplyVector(Inverse(MultiplyMatrix(tMatrix, Matrix)),MultiplyVector(tMatrix, vector));
-            Console.WriteLine("VAHA  = alpha*VYSKA*VYSKA + beta*VYSKA + gama");
+
+            Console.WriteLine("Weight= alpha*Height*Height + beta*Height + gama");
             Console.WriteLine("alpha = " + resVector[0]);
             Console.WriteLine("beta  = " + resVector[1]);
             Console.WriteLine("gama  = " + resVector[2]);
+            Console.WriteLine("Press a key to end");
             Console.ReadKey();
         }
     }
