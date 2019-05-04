@@ -1,2 +1,2 @@
 # FitLinetoData
-Fit polynomial line by using gramm schmidt
+Fit second degree polynomial to the data in sourceData.txt
