@@ -1,4 +1,4 @@
-# FitLinetoData
+# Fit second degree polynomial to the data 
 Fit second degree polynomial to the data in sourceData.txt
 
 The console app is written in C#
